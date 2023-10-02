@@ -267,10 +267,10 @@ class MyHeuristic(Heuristic):
 
     max_indices, = np.where(counts==np.max(counts))
     if(len(max_indices)==1):
-        return int(distinct_literals[max_indices[0]]), int(np.sign(distinct_literals[max_indices[0]]))
+        return int(abs(distinct_literals[max_indices[0]])), int(np.sign(distinct_literals[max_indices[0]]))
     else:
         var = int(np.random.choice(max_indices,1)[0])
-        return int(distinct_literals[var]), int(np.sign(distinct_literals[var]))
+        return int(abs(distinct_literals[var])), int(np.sign(distinct_literals[var]))
 
 class RandomHeuristic(Heuristic):
 
